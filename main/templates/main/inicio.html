@@ -1,0 +1,142 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="caja-intro">
+    <div class="texto-intro envoltura">
+        <h1>{% trans "Tecnología al servicio de tu negocio" %}
+        </h1>
+        <p>{% trans "Desarrollamos software a medida para optimizar procesos clave de tu empresas, con el objetivo de disminuir costos y tiempos operativos." %}</p>
+	</div>
+</div>
+<section id="servicios" class="envoltura">
+
+    <h2>{% trans 'Nuestras soluciones' %}</h2>
+    <svg class="sub_linea" viewBox="0 0 40 2">
+        <path d="M 0 0 L 40 0"/>
+    </svg>
+
+    <div id="tarjetero">
+        {% for servicio in servicios %}
+            <div class="card">
+                <a href="/servicios"></a>
+                <div class="icono">
+                    {{ servicio.icono|safe }}
+                    <img src="/static/main/img/svg/loading.svg" id="loading">
+                    
+                    <a href="/servicios">
+                    </a>
+                </div>
+                <h4>{{ servicio.titulo }}</h4>
+
+                <div href="#" class="velo-plus" >
+                    <p>{% blocktrans with descripcion=servicio.descripcion %}{{ descripcion }}{% endblocktrans %}</p>
+                    <a class="ver-mas" href="#">
+                        {% trans 'Ver más' %}
+                        <svg viewBox="0 0 100 100" class="flecha"><use xlink:href="/static/main/img/svg/right-arrow2.svg#flecha-der"></use></svg>
+                    </a>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="clientes envoltura">
+    <h2>{% trans 'Algunos clientes' %}</h2>
+    <svg class="sub_linea" viewBox="0 0 40 2">
+        <path d="M 0 0 L 40 0"/>
+    </svg>
+    <div class="clientes-grilla">
+        <div class="cliente">
+            <img src="/static/main/img/wire.png" class="wire">
+            <div class="velo-cliente"></div>
+            <a href="#" class="link-cliente"></a>
+            <div class="texto-cliente">
+                <h4>{% trans 'Cliente' %} 1</h2>
+                <svg class="sub_linea" viewBox="0 0 40 2">
+                    <path d="M 0 0 L 40 0"/>
+                </svg>
+                <p>{% trans 'Etiqueta' %}</p>
+            </div>
+
+            <a class="ver-mas" href="#">
+                {% trans 'Ver más' %}
+                <svg viewBox="20 0 100 100" class="flecha"><use xlink:href="/static/main/img/svg/right-arrow2.svg#flecha-der"></use></svg>
+            </a>
+        </div>
+        <div class="cliente">
+            <img src="/static/main/img/wire.png" class="wire">
+            <div class="velo-cliente"></div>
+            <a href="#" class="link-cliente"></a>
+            <div class="texto-cliente">
+                <h4>{% trans 'Cliente' %} 2</h2>
+                <svg class="sub_linea" viewBox="0 0 40 2">
+                    <path d="M 0 0 L 40 0"/>
+                </svg>
+                <p>{% trans 'Etiqueta' %}</p>
+            </div>
+            <a class="ver-mas" href="#">
+                {% trans 'Ver más' %}
+                <svg viewBox="20 0 100 100" class="flecha"><use xlink:href="/static/main/img/svg/right-arrow2.svg#flecha-der"></use></svg>
+            </a>
+
+        </div>
+        <div class="cliente">
+            <img src="/static/main/img/wire.png" class="wire">
+            <div class="velo-cliente"></div>
+            <a href="#" class="link-cliente"></a>
+            <div class="texto-cliente">
+                <h4>{% trans 'Cliente' %} 3</h2>
+                <svg class="sub_linea" viewBox="0 0 40 2">
+                    <path d="M 0 0 L 40 0"/>
+                </svg>
+                <p>{% trans 'Etiqueta' %}</p>
+            </div>
+            <a class="ver-mas" href="#">
+                {% trans 'Ver más' %}
+                <svg viewBox="20 0 100 100" class="flecha"><use xlink:href="/static/main/img/svg/right-arrow2.svg#flecha-der"></use></svg>
+            </a>
+
+        </div>
+        <div class="cliente">
+            <img src="/static/main/img/wire.png" class="wire">
+            <div class="velo-cliente"></div>
+            <a href="#" class="link-cliente"></a>
+            <div class="texto-cliente">
+                <h4>{% trans 'Cliente' %} 4</h2>
+                <svg class="sub_linea" viewBox="0 0 40 2">
+                    <path d="M 0 0 L 40 0"/>
+                </svg>
+                <p>{% trans 'Etiqueta' %}</p>
+            </div>
+            <a class="ver-mas" href="#">
+                {% trans 'Ver más' %}
+                <svg viewBox="2 0 100 100" class="flecha"><use xlink:href="/static/main/img/svg/right-arrow2.svg#flecha-der"></use></svg>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section class="tecnos envoltura">
+    <h2>{% trans 'Tecnologías que usamos' %}</h2>
+    <svg class="sub_linea" viewBox="0 0 40 2">
+        <path d="M 0 0 L 40 0"/>
+    </svg>
+    <div class="tecno-grilla">
+        <div style="background-image: url('/static/main/img/GX-grey.png')"></div>
+        <div style="background-image: url('/static/main/img/wp-grey.png')"></div>
+        <div style="background-image: url('/static/main/img/android-grey.png')"></div>
+        <div style="background-image: url('/static/main/img/java-grey.png')"></div>
+        <div style="background-image: url('/static/main/img/python.png')"></div>
+        <div style="background-image: url('/static/main/img/django.png')"></div>
+        <div style="background-image: url('/static/main/img/react.png')"></div>
+        <!--<div style="background-image: url('/static/main/img/jquery.png')"></div>
+        <div style="background-image: url('/static/main/img/mysql.png')"></div>-->
+        <div style="background-image: url('/static/main/img/ue-grey.png')"></div>
+    </div>
+</section>
+
+{% endblock %}

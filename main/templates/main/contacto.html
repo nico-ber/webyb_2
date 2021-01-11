@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% block content %}
+<section id="contacto">
+    <div class="caja-intro contacto">
+        <div class="texto-intro envoltura">
+            <h1>¿Tienes un proyecto en mente?</h1>
+            <h1>Hablemos</h1>
+        </div>
+    </div>
+    <form class="envoltura" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="campo">
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit", name="enviar">Enviar</button>
+    </form>
+</section>
+{% endblock %}

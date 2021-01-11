@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-07 17:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\main\templates\main\base.html:21
+msgid "Inicio"
+msgstr "Home"
+
+#: .\main\templates\main\base.html:22
+msgid "Servicios"
+msgstr "Services"
+
+#: .\main\templates\main\base.html:23 .\main\templates\main\sobre.html:8
+msgid "Sobre Nosotros"
+msgstr "About US"
+
+#: .\main\templates\main\base.html:102
+msgid "Hablemos"
+msgstr "Let's talk"
+
+#: .\main\templates\main\inicio.html:8
+msgid "Tecnología al servicio de tu negocio"
+msgstr "Technology at your business's service"
+
+#: .\main\templates\main\inicio.html:10
+msgid ""
+"Desarrollamos software a medida para optimizar procesos clave de tu "
+"empresas, con el objetivo de disminuir costos y tiempos operativos."
+msgstr ""
+"We develop custom software to optimize key processes of your company, with "
+"the aim of reducing costs and operating times."
+
+#: .\main\templates\main\servicios.html:8
+msgid "Nuestras soluciones"
+msgstr "Our solutions"
+
+#: .\main\templates\main\servicios.html:9
+msgid ""
+"Desarrollamos software a medida para optimizar procesos clave de tu empresa, "
+"con el objetivo de disminuir costos y tiempos operativos."
+msgstr ""
+
+
+#: .\main\templates\main\sobre.html:9
+msgid "Lorem ipsum, Lorem ipsum"
+msgstr ""
+
+#: .\webyb_2\urls.py:34
+#| msgid "Inicio"
+msgid "inicio/"
+msgstr "home/"
+
+#: .\webyb_2\urls.py:35
+#| msgid "Servicios"
+msgid "servicios/"
+msgstr "services/"
+
+#: .\webyb_2\urls.py:36
+msgid "sobre/"
+msgstr "about/"
+
+#: .\webyb_2\urls.py:37
+msgid "contacto/"
+msgstr "contact/"

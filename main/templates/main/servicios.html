@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="caja-intro">
+        <div class="texto-intro envoltura">
+            <h1>{% trans "Nuestras soluciones" %}</h1>
+            <p>{% trans "Desarrollamos software a medida para optimizar procesos clave de tu empresa, con el objetivo de disminuir costos y tiempos operativos." %}</p>
+        </div>
+    </div>
+
+    <div class="servicios envoltura">
+
+        {% for servicio in servicios %}
+        <div class="servicio">
+            <div class="texto">
+                <h2>{{ servicio.titulo }}</h2>
+                <svg class="sub_linea" viewBox="0 0 40 2">
+                    <path d="M 0 0 L 40 0"/>
+                </svg>
+                {% if not servicio.descripcion2%}
+                    <p>{{ servicio.descripcion }}</p>
+                {% else %}
+                    <p>{{ servicio.descripcion2 }}</p>
+                {% endif %}
+
+                {{ servicio.listado|safe }}
+            </div>
+            <div class="icono">
+                {{ servicio.icono|safe }}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+

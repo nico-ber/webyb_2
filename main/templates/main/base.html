@@ -1,0 +1,132 @@
+{% load static i18n %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/all.css' %}" media="screen">
+</head>
+<body>
+    <div class="fondo"></div>
+    <header>
+        <div class="cabezal">
+            <div class="envoltura">
+                <a href="/inicio">
+                    <img src="{% static 'main/img/Logo-01.png' %}">
+                    <p>B&B</p>
+                </a>
+                <nav class="nav-line">
+                    <ul>
+                        <li><a href="/inicio">{% trans "Inicio" %}</a></li>
+                        <li><a href="/servicios">{% trans "Servicios" %}</a></li>
+                        <li><a href="/sobre">{% trans "Sobre Nosotros" %}</a></li>
+
+                        
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        <div class="btn-header">
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                {% for language in languages %}
+                                    {% if language.code != LANGUAGE_CODE %}
+                                        <button type="submit" name="language" value="{{ language.code }}">{{ language.name_local }}</button>
+                                    {% endif %}
+                                {% endfor %}
+                            </form>
+                        </div>
+                        
+                        <li><a href="/contacto" class="button">{% trans "Hablemos" %}</a></li>
+                    </ul>
+                </nav>
+                <nav class="burger" role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" id="check"/>
+                        <a href="#" id="menu-fondo"></a>
+                        <span></span>
+                        <span></span>
+                        <span></span><!--
+                        <div class="barra-menu">
+                            <div class="envoltura">
+                                <a href="/inicio">
+                                    <img src="{% static 'main/img/Logo-01.png' %}">
+                                    <p>B&B</p>
+                                </a>
+                            </div>
+                        </div>-->
+                        <ul id="menu">
+                            <a href="/servicios"><li>Servicios</li></a>
+                            <a href="/sobre"><li>Sobre Nosotros</li></a>
+                            <a href="/contacto/"><li>Contacto</li></a>
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                {% for language in languages %}
+                                    {% if language.code != LANGUAGE_CODE %}
+                                        <button type="submit" name="language" value="{{ language.code }}">{{ language.name_local }}</button>
+                                    {% endif %}
+                                {% endfor %}
+                            </form>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="y-cero" style="height: 0.066rem;"></div>
+
+        <div id="content">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="{% static 'main/js/jquery.min.js' %}"></script>
+
+    <script>
+        //Subir tras recargar página
+        $(document).ready(function(){
+            $(this).scrollTop(0);
+        });
+        
+        //Nevegación opaca tras scroll
+        var alturaPrimeraSection = $('.y-cero').outerHeight();
+        
+        $(window).on('scroll', function(){
+            totalScroll = $(window).scrollTop();
+            if(totalScroll >= alturaPrimeraSection){
+                $('.cabezal').addClass('onScroll');
+            }else{
+                $('.cabezal').removeClass('onScroll');
+            }
+        });
+
+        //Cerrar menu hamburguesa
+        $("#menu-fondo").click(function(e) {
+            if((e.target).tagName == 'INPUT') return true; 
+            e.preventDefault();
+            $("#check").prop("checked", !$("#check").prop("checked"));
+        });
+
+        //Expandir lenguajes con hover
+        function toggleSelectBox(selbox){ 
+            if(selbox.size>1){//HIDE:
+                selbox.size=1;
+                selbox.style.position='static';
+            }else{//SHOW:
+                selbox.size = selbox.options.length;
+                selbox.style.position='absolute';
+                selbox.style.height='auto';
+            }
+        }
+    </script>
+</body>
+</html>
